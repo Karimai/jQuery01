@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- http or https is necessary here! -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <title>Let's learn jQuery!</title>
+</head>
+<body>
+    <div id="zeroone" style="height: 150px; width:300px; background-color: lightgrey;
+        text-align: center; padding: 10px;"></div>
+        <button type="button" id="show">show</button>
+        <button type="button" id="hide">hide</button>
+        <button type="button" id="toggle">toggle</button>
+        <input type="text" class="power" value="">
+        <script>
+            $(document).ready(function(){
+                console.log('It is ready!')
+                $("#zeroone").click(function() {
+                    if ($(this).html() === 'you clicked on me!') {
+                        $(this).html("you clicked on me agian!!");
+                    } else {
+                        $(this).html("you clicked on me!");
+                    }
+                });
+                $('#zeroone').hover(function() {
+                    $(this).css('background-color', 'darkgrey');
+                });
+                $('#zeroone').mouseleave(function() {
+                    $(this).css('background-color', 'lightgrey');
+                });
+                $('#show').click(function() {
+                    console.log('The show button was clicked!')
+                    $('#zeroone').show();
+                });
+                $('#hide').click(function(){
+                    console.log('the hide button was clicked!')
+                    $('#zeroone').hide();
+                });
+                $('#toggle').click(function() {
+                    console.log('The toggle button was clicked!')
+                    $('#zeroone').toggle();
+                });
+                $('.power').keyup(function() {
+                    $("#zeroone").html($(this).val())
+                });
+            });
+        </script>
+</body>
+</html>
